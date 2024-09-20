@@ -16,6 +16,16 @@ public class Campo {
         this.obrigatorio = obrigatorio;
     }
 
+    public boolean validar(String valor) {
+        if (obrigatorio && (valor == null || valor.isEmpty())) {
+            return false;
+        }
+        if (!obrigatorio && (valor == null || valor.isEmpty())) {
+            return true;
+        }
+        return validador.validar(valor);
+    }
+
     public String getId() {
         return id;
     }
@@ -30,6 +40,14 @@ public class Campo {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public void setValidador(ValidadorCampo validador) {
+        this.validador = validador;
+    }
+
+    public boolean isObrigatorio() {
+        return obrigatorio;
     }
 
 }
