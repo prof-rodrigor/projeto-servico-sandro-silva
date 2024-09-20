@@ -6,11 +6,14 @@ public class Campo {
     private String label;
     private ValidadorCampo validador;
 
+    private boolean obrigatorio;
 
-    public Campo(String id, String label, ValidadorCampo validador) {
+
+    public Campo(String id, String label, ValidadorCampo validador, boolean obrigatorio) {
         this.id = id;
         this.label = label;
         this.validador = validador;
+        this.obrigatorio = obrigatorio;
     }
 
     public String getId() {
