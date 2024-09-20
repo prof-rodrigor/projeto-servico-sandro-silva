@@ -17,9 +17,8 @@ public class Form {
     }
 
     public void addCampo(Campo campo) {
-
+        campos.put(id, campo);
     }
-
 
 
 }
