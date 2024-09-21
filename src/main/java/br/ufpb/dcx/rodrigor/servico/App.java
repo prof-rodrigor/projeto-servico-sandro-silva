@@ -3,6 +3,7 @@ package br.ufpb.dcx.rodrigor.servico;
 import br.ufpb.dcx.rodrigor.servico.db.MongoDBRepository;
 import br.ufpb.dcx.rodrigor.servico.login.LoginController;
 import br.ufpb.dcx.rodrigor.servico.login.UsuarioService;
+import br.ufpb.dcx.rodrigor.servico.participantes.controllers.FormularioController;
 import br.ufpb.dcx.rodrigor.servico.participantes.controllers.ParticipanteController;
 import br.ufpb.dcx.rodrigor.servico.participantes.services.ParticipanteService;
 import br.ufpb.dcx.rodrigor.servico.ping.controllers.PingController;
@@ -118,6 +119,8 @@ public class App {
 
         ParticipanteService participanteService = new ParticipanteService(mongoDBRepository);
         config.appData(Keys.PARTICIPANTE_SERVICE.key(), participanteService);
+        config.appData(Keys.FORMULARIO_SERVICE.key(), participanteService);
+
         //TODO alterar endopoint para o serviço de usuário
         config.appData(Keys.USUARIO_SERVICE.key(), new UsuarioService("https://localhost:8000"));
     }
@@ -147,12 +150,14 @@ public class App {
         app.post("/participantes", participanteController::adicionarParticipante);
         app.get("/participantes/{id}/remover", participanteController::removerParticipante);
 
+        FormularioController formularioController = new FormularioController();
+        app.get("/formularios", formularioController::exibirFormulario);
+
         PingController pingController = new PingController();
         app.get("/v1/ping", pingController::ping);
         app.get("/ping", pingController::mostrarPaginaPing);
 
     }
-
 
 
     private int obterPortaServidor() {
