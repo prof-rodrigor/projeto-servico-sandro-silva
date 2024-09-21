@@ -10,7 +10,7 @@ public class Form {
     private Map<String, Campo> campos;
 
 
-    public Form(String id, String titulo, Map<String, Campo> campos) {
+    public Form(String id, String titulo) {
         this.id = id;
         this.titulo = titulo;
         this.campos = new LinkedHashMap<>();
