@@ -92,4 +92,5 @@ public class ParticipanteService extends AbstractService {
         doc.put("categoria", participante.getCategoria().name());
         return doc;
     }
+
 }
