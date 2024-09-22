@@ -1,8 +1,10 @@
 package br.ufpb.dcx.rodrigor.servico.participantes.controllers;
 
+import br.ufpb.dcx.rodrigor.servico.Keys;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.Campo;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.Form;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.ValidadorInteiro;
+import br.ufpb.dcx.rodrigor.servico.participantes.services.ParticipanteService;
 import io.javalin.http.Context;
 
 public class FormularioController {
@@ -35,4 +37,33 @@ public class FormularioController {
         ctx.render("/templates/formulario.html");
 
     }
+
+    public void processarDados(Context ctx) {
+        ParticipanteService formularioService = ctx.appData(Keys.FORMULARIO_SERVICE.key());
+        String formId = ctx.formParam("formId");
+
+        Form form = formularioService.getFormulario();
+
+        if (form != null) {
+            for (Campo campo : form.getCampos().values()) {
+                String valor = ctx.formParam(campo.getId());
+                if (campo.validar(valor)) {
+                    // Processa o campo se válido
+                    System.out.println("Campo " + campo.getId() + " válido: " + valor);
+                } else {
+                    // Se inválido, exibe mensagem de erro
+                    System.out.println("Erro na validação do campo " + campo.getId());
+                    ctx.status(400);
+                    return;
+                }
+            }
+            // Se todos os campos forem válidos, faz algo com os dados processados
+            System.out.println("Todos os campos foram validados com sucesso.");
+            ctx.status(200);
+        } else {
+            ctx.status(404).result("Formulário não encontrado.");
+        }
+    }
+
+
 }
