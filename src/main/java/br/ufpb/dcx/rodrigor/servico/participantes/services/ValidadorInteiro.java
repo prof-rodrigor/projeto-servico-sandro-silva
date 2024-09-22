@@ -1,6 +1,8 @@
-package br.ufpb.dcx.rodrigor.servico.participantes.model;
+package br.ufpb.dcx.rodrigor.servico.participantes.services;
 
-public class ValidadorInteiro implements ValidadorCampo{
+import br.ufpb.dcx.rodrigor.servico.participantes.model.ValidadorCampo;
+
+public class ValidadorInteiro implements ValidadorCampo {
     private int min;
     private int max;
 
