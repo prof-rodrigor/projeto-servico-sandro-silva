@@ -15,7 +15,7 @@ public class FormularioService {
         //formulario.addCampo(new Campo("nome", "Nome", new ValidadorTexto(1, 100), true));
         formulario.addCampo(new Campo("email", "E-mail", new ValidadorEmail(), true));
         formulario.addCampo(new Campo("altura", "Altura", new ValidadorDecimal(0.5, 2.5), true));
-        //formulario.addCampo(new Campo("data_nascimento", "Data de Nascimento", new ValidadorData(), true));
+        formulario.addCampo(new Campo("data_nascimento", "Data de Nascimento", new ValidadorData(), true));
 
         return formulario;
     }
