@@ -20,5 +20,9 @@ public class Form {
         campos.put(id, campo);
     }
 
+    public Map<String, Campo> getCampos() {
+        return campos;
+    }
+
 
 }
