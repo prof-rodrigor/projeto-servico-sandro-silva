@@ -3,7 +3,7 @@ package br.ufpb.dcx.rodrigor.servico.participantes.controllers;
 import br.ufpb.dcx.rodrigor.servico.Keys;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.Campo;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.Form;
-import br.ufpb.dcx.rodrigor.servico.participantes.model.ValidadorInteiro;
+import br.ufpb.dcx.rodrigor.servico.participantes.services.ValidadorInteiro;
 import br.ufpb.dcx.rodrigor.servico.participantes.services.ParticipanteService;
 import io.javalin.http.Context;
 
