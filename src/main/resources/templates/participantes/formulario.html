@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+</head>
+<body>
+<h1>Preencha o Formulário</h1>
+<form action="${formulario.action}" method="${formulario.method}">
+    <div>
+        <label for="nome">${formulario.campos['nome'].label}</label>
+        <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div>
+        <label for="email">${formulario.campos['email'].label}</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div>
+        <label for="altura">${formulario.campos['altura'].label}</label>
+        <input type="number" id="altura" name="altura" min="50" max="250" required>
+    </div>
+
+    <div>
+        <label for="data_nascimento">${formulario.campos['data_nascimento'].label}</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" required>
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>
+</body>
+</html>

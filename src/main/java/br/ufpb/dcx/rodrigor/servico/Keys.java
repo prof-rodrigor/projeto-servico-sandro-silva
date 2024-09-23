@@ -2,6 +2,7 @@ package br.ufpb.dcx.rodrigor.servico;
 
 import br.ufpb.dcx.rodrigor.servico.db.MongoDBRepository;
 import br.ufpb.dcx.rodrigor.servico.login.UsuarioService;
+import br.ufpb.dcx.rodrigor.servico.participantes.services.FormularioService;
 import br.ufpb.dcx.rodrigor.servico.participantes.services.ParticipanteService;
 import io.javalin.config.Key;
 
@@ -10,8 +11,8 @@ public enum Keys {
     SERVICO_NOME(new Key<String>("servico.nome")),
     PARTICIPANTE_SERVICE(new Key<ParticipanteService>("participante-service")),
     USUARIO_SERVICE(new Key<UsuarioService>("usuario-service")),
-    SERVICO_PING_HOST(new Key<String>("servico.ping.host"))
-    ;
+    SERVICO_PING_HOST(new Key<String>("servico.ping.host")),
+    FORMULARIO_SERVICE(new Key<FormularioService>("formulario-service"));
 
     private final Key<?> k;
 

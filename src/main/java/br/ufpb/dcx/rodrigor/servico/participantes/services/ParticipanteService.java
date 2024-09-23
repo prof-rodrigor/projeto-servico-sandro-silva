@@ -3,6 +3,7 @@ package br.ufpb.dcx.rodrigor.servico.participantes.services;
 import br.ufpb.dcx.rodrigor.servico.AbstractService;
 import br.ufpb.dcx.rodrigor.servico.db.MongoDBRepository;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.CategoriaParticipante;
+import br.ufpb.dcx.rodrigor.servico.participantes.model.Form;
 import br.ufpb.dcx.rodrigor.servico.participantes.model.Participante;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -91,5 +92,9 @@ public class ParticipanteService extends AbstractService {
         doc.put("telefone", participante.getTelefone());
         doc.put("categoria", participante.getCategoria().name());
         return doc;
+    }
+
+    public Form getFormulario() {
+        return getFormulario();
     }
 }
